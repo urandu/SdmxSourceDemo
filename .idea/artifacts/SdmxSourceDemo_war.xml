@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SdmxSourceDemo:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="SdmxSourceDemo-1.0.war">
+      <element id="artifact" artifact-name="SdmxSourceDemo:war exploded" />
+    </root>
+  </artifact>
+</component>

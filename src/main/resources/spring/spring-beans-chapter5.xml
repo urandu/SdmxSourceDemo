@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<!-- DATA FROM FILE -->
+	<bean id="dataRetrievalFromFile" class="org.sdmxsource.sdmx.filequeryprocessor.engine.FileQueryEngine">
+		<constructor-arg ref="dataLocation" />
+	</bean>
+	
+	<bean id="dataLocation" class="org.sdmxsource.util.io.ReadableDataLocationTmp">
+		<constructor-arg value="src/main/resources/data/chapter3/sample_data.xml" />
+	</bean>
+	
+	<!-- STRUCTURE FROM FILE -->
+	<bean id="beanRetrievalFromFile" class="org.sdmxsource.sdmx.structureretrieval.manager.InMemoryRetrievalManager">
+		<constructor-arg ref="structureLocation" />
+		<property name="serviceRetrievalManager" ref="serviceRetrievalManager" />
+	</bean>
+
+	<bean id="structureLocation" class="org.sdmxsource.util.io.ReadableDataLocationTmp">
+		<constructor-arg value="src/main/resources/structures/chapter2/structures_full.xml" />
+	</bean>
+	
+</beans>
+
+
+
